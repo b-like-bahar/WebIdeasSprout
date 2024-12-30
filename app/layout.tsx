@@ -54,8 +54,8 @@ variable: '--font-work-sans'
 })
 
 export const metadata: Metadata = {
-  title: "YC Directory",
-  description: "Pitch, Vote and Grow",
+  title: "WebVerse",
+  description: "Get your web app project ideas here",
 };
 
 export default function RootLayout({
