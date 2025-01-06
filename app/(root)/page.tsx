@@ -1,4 +1,6 @@
-export default async function Home() {
+import SearchForm from "../components/SearchForm";
+
+export default function Home() {
   return (
     <>
       <section className="hero_container">
@@ -9,6 +11,7 @@ export default async function Home() {
         <p className="sub-heading !max-w-3xl">
           Submit your concepts, gather feedback, and collaborate with a vibrant community.
         </p>
+        <SearchForm />
       </section>
     </>
   );
