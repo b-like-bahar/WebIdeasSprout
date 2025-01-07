@@ -1,6 +1,7 @@
 import { formatDate } from "@/lib/utils";
 import Link from "next/link";
 import Image from "next/image";
+import { Button } from "./ui/button";
 import { EyeIcon } from "lucide-react"
 
 const WebappCard = ({post} : {post : WebappCardType}) => {
@@ -36,6 +37,16 @@ const WebappCard = ({post} : {post : WebappCardType}) => {
                 </p>
                 <img src={image} alt={`${title} website image`} className="webapp-card_img" />
             </Link>
+            <div className="flex-between gap-3 mt-5">
+                <Link href={`/?query=${category.toLowerCase()}`} >
+                    <p className="text-16-medium">{category}</p>
+                </Link>
+                <Button className="webapp-card-btn" asChild>
+                    <Link href={`/webapp/${_id}`}>
+                        Details
+                    </Link>
+                </Button>
+            </div>
         </li>
     )
 }
