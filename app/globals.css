@@ -90,4 +90,8 @@
   .search-button {
     @apply size-[50px] rounded-full bg-black flex justify-center items-center !important;
   }
+
+  .web-apps_container {
+    @apply px-6 py-10 max-w-7xl mx-auto;
+  }
 }
