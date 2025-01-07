@@ -40,7 +40,7 @@ export default async function Home({ searchParams } : {searchParams : Promise <{
             <WebappCard key={post?._id} post={post}/>
           )) 
         ) : (
-            <p className="no-result">No startups found</p>
+            <p className="no-result">No Websites found</p>
         )}
         </ul>
       </section>
