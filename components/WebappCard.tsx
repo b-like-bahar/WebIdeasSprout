@@ -30,6 +30,12 @@ const WebappCard = ({post} : {post : WebappCardType}) => {
                     <Image src="https://placehold.co/48x48" alt="placeholder" width={48} height={48} className="rounded-full" />
                 </Link>
             </div>
+            <Link href={`/webapp/${_id}`}>
+                <p className="webapp-card_desc">
+                    {description}
+                </p>
+                <img src={image} alt={`${title} website image`} className="webapp-card_img" />
+            </Link>
         </li>
     )
 }
