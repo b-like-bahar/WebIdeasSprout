@@ -6,7 +6,7 @@ export default async function Home({ searchParams } : {searchParams : Promise <{
   const query = (await searchParams).query
 
   const posts = [{
-    _createdAt: "Today",
+    _createdAt: new Date(),
     views: 55,
     author: { _id: 1 , name:"Bahar"},
     _id: 1,
