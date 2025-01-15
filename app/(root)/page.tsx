@@ -1,7 +1,7 @@
 import { WEBAPPS_QUERY } from "@/sanity/lib/queries";
 import SearchForm from "../../components/SearchForm";
-import WebappCard from "@/components/WebappCard";
-import {client} from "@/sanity/lib/client"
+import WebappCard, { WebappTypeCard } from "@/components/WebappCard";
+import {client} from "@/sanity/lib/client";
 
 export default async function Home({ searchParams } : {searchParams : Promise <{query?: string}>}) {
 
@@ -28,7 +28,7 @@ export default async function Home({ searchParams } : {searchParams : Promise <{
         </p>
         <ul className="mt-7 card_grid">
           {posts?.length > 0 ? (
-          posts.map((post: WebappCardType) => (
+          posts.map((post: WebappTypeCard) => (
             <WebappCard key={post?._id} post={post}/>
           )) 
         ) : (
