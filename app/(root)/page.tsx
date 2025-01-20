@@ -1,13 +1,13 @@
 import { WEBAPPS_QUERY } from "@/sanity/lib/queries";
 import SearchForm from "../../components/SearchForm";
 import WebappCard, { WebappTypeCard } from "@/components/WebappCard";
-import {client} from "@/sanity/lib/client";
+import { sanityFetch } from "@/sanity/lib/live";
 
 export default async function Home({ searchParams } : {searchParams : Promise <{query?: string}>}) {
 
   const query = (await searchParams).query
 
-  const posts = await client.fetch(WEBAPPS_QUERY);
+  const { data: posts } = await sanityFetch({query: WEBAPPS_QUERY })
 
   return (
     <>
