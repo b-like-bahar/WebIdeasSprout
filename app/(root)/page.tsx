@@ -1,7 +1,7 @@
 import { WEBAPPS_QUERY } from "@/sanity/lib/queries";
 import SearchForm from "../../components/SearchForm";
 import WebappCard, { WebappTypeCard } from "@/components/WebappCard";
-import { sanityFetch } from "@/sanity/lib/live";
+import { sanityFetch, SanityLive } from "@/sanity/lib/live";
 
 export default async function Home({ searchParams } : {searchParams : Promise <{query?: string}>}) {
 
@@ -36,6 +36,8 @@ export default async function Home({ searchParams } : {searchParams : Promise <{
         )}
         </ul>
       </section>
+
+      <SanityLive />
     </>
   );
 }
