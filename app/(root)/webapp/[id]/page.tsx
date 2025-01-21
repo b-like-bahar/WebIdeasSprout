@@ -5,6 +5,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import markdownit from "markdown-it"
+import { Suspense } from "react";
+import { Skeleton } from "@/components/ui/skeleton";
 
 const md = markdownit()
 export const experimental_ppr = true;
@@ -49,7 +51,13 @@ const Page = async ({ params }: { params: Promise<{ id: string }> }) => {
                         <p className="no-result">No details provided</p>
                     )}
                 </div>
+                <hr className="divider" />
+
+                <Suspense fallback={<Skeleton className="view_skeleton" />}>
+
+                </Suspense>
             </section>
+
         </>
     )
 }
