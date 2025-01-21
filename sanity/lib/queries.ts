@@ -14,3 +14,18 @@ export const WEBAPPS_QUERY =
         category,
         image
 }`);
+
+export const WEBAPP_BY_ID_QUERY =
+    defineQuery(`*[_type == "webapp" && _id == $id][0]{
+        _id,
+        title,
+        slug,
+        author -> {
+        _id, name, username, image, bio
+    },
+        views,
+        description,
+        category,
+        image,
+        pitch,
+}`)
