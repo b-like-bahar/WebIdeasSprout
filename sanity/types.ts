@@ -210,11 +210,12 @@ export type WEBAPPS_QUERYResult = Array<{
   image: string | null;
 }>;
 // Variable: WEBAPP_BY_ID_QUERY
-// Query: *[_type == "webapp" && _id == $id][0]{        _id,        title,        slug,        author -> {        _id, name, username, image, bio    },        views,        description,        category,        image,        pitch,}
+// Query: *[_type == "webapp" && _id == $id][0]{        _id,        title,        slug,        _createdAt,        author -> {        _id, name, username, image, bio    },        views,        description,        category,        image,        pitch,}
 export type WEBAPP_BY_ID_QUERYResult = {
   _id: string;
   title: string | null;
   slug: Slug | null;
+  _createdAt: string;
   author: {
     _id: string;
     name: string | null;
@@ -234,6 +235,6 @@ import "@sanity/client";
 declare module "@sanity/client" {
   interface SanityQueries {
     "*[_type == \"webapp\" && defined(slug.current) && !defined($search) || title match $search || category match $search || author -> name match $search] | order(_createdAt desc){\n        _id,\n        title,\n        slug,\n        _createdAt,\n        author -> {\n        _id, name, image, bio\n    },\n        views,\n        description,\n        category,\n        image\n}": WEBAPPS_QUERYResult;
-    "*[_type == \"webapp\" && _id == $id][0]{\n        _id,\n        title,\n        slug,\n        author -> {\n        _id, name, username, image, bio\n    },\n        views,\n        description,\n        category,\n        image,\n        pitch,\n}": WEBAPP_BY_ID_QUERYResult;
+    "*[_type == \"webapp\" && _id == $id][0]{\n        _id,\n        title,\n        slug,\n        _createdAt,\n        author -> {\n        _id, name, username, image, bio\n    },\n        views,\n        description,\n        category,\n        image,\n        pitch,\n}": WEBAPP_BY_ID_QUERYResult;
   }
 }

@@ -20,6 +20,7 @@ export const WEBAPP_BY_ID_QUERY =
         _id,
         title,
         slug,
+        _createdAt,
         author -> {
         _id, name, username, image, bio
     },
