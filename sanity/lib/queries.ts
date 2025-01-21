@@ -30,3 +30,9 @@ export const WEBAPP_BY_ID_QUERY =
         image,
         pitch,
 }`)
+
+export const WEBAPP_VIEWS_QUERY = 
+defineQuery(`*[_type == "webapp" && _id == $id][0]{
+    _id, views
+    }
+`)
