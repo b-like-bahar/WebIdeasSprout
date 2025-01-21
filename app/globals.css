@@ -118,4 +118,12 @@
   .webapp-card_btn {
     @apply rounded-full bg-black-200 font-medium text-[16px] text-white px-5 py-3 !important;
   }
+
+  .category-tag {
+    @apply font-medium text-[16px] bg-primary-100 px-4 py-2 rounded-full;
+  }
+
+  .no-result {
+      @apply text-black-100 text-sm font-normal;
+  }
 }
