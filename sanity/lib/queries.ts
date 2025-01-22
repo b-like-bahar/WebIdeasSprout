@@ -33,7 +33,6 @@ export const WEBAPP_BY_ID_QUERY =
 
 export const WEBAPP_VIEWS_QUERY = 
 defineQuery(`*[_type == "webapp" && _id == $id][0]{
-    _id: string,
-    views: number
+    _id,views
     }
 `)
