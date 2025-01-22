@@ -142,4 +142,24 @@
   .view-text {
     @apply font-medium text-[16px] bg-primary-100 px-4 py-2 rounded-lg capitalize;
   }
+
+  .webapp_form {
+    @apply max-w-2xl mx-auto bg-white my-10 space-y-8 px-6;
+  }
+
+  .webapp_form-label {
+    @apply font-bold text-[18px] text-black uppercase;
+  }
+
+  .webapp_form-input {
+    @apply border-[3px] border-black px-5 py-7 text-[18px] text-black font-semibold rounded-full mt-3 placeholder:text-black-300 !important;
+  }
+
+  .webapp_form-textarea {
+    @apply border-[3px] border-black p-5 text-[18px] text-black font-semibold rounded-[20px] mt-3 placeholder:text-black-300 !important;
+  }
+
+  .webapp_form-error {
+    @apply text-red-500 mt-2 ml-5;
+  }
 }
