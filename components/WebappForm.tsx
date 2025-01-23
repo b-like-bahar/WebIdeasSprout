@@ -35,7 +35,7 @@ const WebappForm = () => {
         } 
         return {
             ...prevState,
-            error: "An unexpected error had occured",
+            error: "An unexpected error had occurred",
             status: "ERROR"
         };
     };
