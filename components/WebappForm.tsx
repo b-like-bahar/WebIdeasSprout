@@ -7,7 +7,7 @@ import MDEditor from "@uiw/react-md-editor"
 
 const WebappForm = () => {
     const[errors, setErrors] = useState<Record<string, string>>({})
-    const[pitch, setPitch] = useState("Hello!");
+    const[pitch, setPitch] = useState("");
 
     return (
         <form action={() =>{}} className="webapp_form">
@@ -53,7 +53,7 @@ const WebappForm = () => {
                 />
                 {errors.pitch && <p className="webapp_form-error">{errors.pitch}</p>}
             </div>
-
+                
         </form>
     )
 }
