@@ -1,19 +1,50 @@
 "use client"
 
-import { useState } from "react"
+import { useActionState, useState } from "react"
 import { Input } from "./ui/input"
 import { Textarea } from "./ui/textarea"
 import MDEditor from "@uiw/react-md-editor"
 import { Button } from "./ui/button"
 import { Send } from "lucide-react"
+import { formSchema } from "@/lib/validation"
+import { z } from "zod"
 
 const WebappForm = () => {
-    const[errors, setErrors] = useState<Record<string, string>>({})
+    const[errors, setErrors] = useState<Record<string, string>>({});
     const[pitch, setPitch] = useState("");
-    const isSubmitting = false;
+
+    const handleFormSubmit = async (prevState: any, formData: FormData) => {
+        try {
+            const formValues = {
+                title: formData.get("title") as string,
+                description: formData.get("description") as string,
+                category: formData.get("category") as string,
+                link: formData.get("link") as string,
+                pitch,
+            };
+            await formSchema.parseAsync(formValues);
+        } catch (error) {
+            if (error instanceof z.ZodError) {
+                const fieldErrors = error.flatten().fieldErrors;
+
+                setErrors(fieldErrors as unknown as Record<string, string>);
+
+                return { ...prevState, error: "validation failed", status: "Error"}
+            };
+
+        } 
+        return {
+            ...prevState,
+            error: "An unexpected error had occured",
+            status: "ERROR"
+        };
+    };
+
+    const [state,formAction, isSubmitting] = useActionState(handleFormSubmit, {error: "", status: "INITIAL"});
+
 
     return (
-        <form action={() =>{}} className="webapp_form">
+        <form action={formAction} className="webapp_form">
             <div>
                 <label htmlFor="title" className="webapp_form-label">TITLE</label>
                 <Input id="title" name="title" className="webapp_form-input" placeholder="Website Title" required />
