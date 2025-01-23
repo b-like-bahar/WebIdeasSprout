@@ -162,4 +162,12 @@
   .webapp_form-error {
     @apply text-red-500 mt-2 ml-5;
   }
+
+  .webapp_form-editor {
+    @apply mt-3 border-[3px] border-black text-[18px] text-black font-semibold placeholder:text-black-300 !important;
+  }
+
+  .webapp_form-btn {
+    @apply bg-primary border-[4px] border-black rounded-full p-5 min-h-[70px] w-full font-bold text-[18px] !important;
+  }
 }
