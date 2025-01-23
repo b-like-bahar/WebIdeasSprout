@@ -4,10 +4,13 @@ import { useState } from "react"
 import { Input } from "./ui/input"
 import { Textarea } from "./ui/textarea"
 import MDEditor from "@uiw/react-md-editor"
+import { Button } from "./ui/button"
+import { Send } from "lucide-react"
 
 const WebappForm = () => {
     const[errors, setErrors] = useState<Record<string, string>>({})
     const[pitch, setPitch] = useState("");
+    const isSubmitting = false;
 
     return (
         <form action={() =>{}} className="webapp_form">
@@ -53,7 +56,10 @@ const WebappForm = () => {
                 />
                 {errors.pitch && <p className="webapp_form-error">{errors.pitch}</p>}
             </div>
-                
+            <Button type="submit" className="webapp_form-btn text-white" disabled={isSubmitting} >
+                {isSubmitting ? "Submitting ..." : "Submit Your Website"}
+                <Send className="ml-2" />
+            </Button>
         </form>
     )
 }
