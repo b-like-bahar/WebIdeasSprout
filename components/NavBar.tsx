@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { auth, signIn, signOut } from "@/auth"
-import { BadgePlus } from 'lucide-react';
+import { BadgePlus, LogOut } from 'lucide-react';
 
 const Navbar = async () => {
     const session = await auth()
@@ -26,7 +26,8 @@ const Navbar = async () => {
                             }}
                             >
                                 <button type="submit">
-                                    Logout
+                                    <span className="max-sm:hidden">Logout</span>
+                                    <LogOut className="size-6 sm:hidden text-red-500" />
                                 </button>
                             </form>
 
