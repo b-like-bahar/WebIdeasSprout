@@ -1,5 +1,6 @@
 import { auth } from "@/auth";
 import UserWebapps from "@/components/UserWebapps";
+import { WebappCardSkeleton } from "@/components/WebappCard";
 import { client } from "@/sanity/lib/client";
 import { AUTHOR_BY_ID_QUERY } from "@/sanity/lib/queries";
 import Image from "next/image";
@@ -35,7 +36,7 @@ const Page = async ({ params }: { params: Promise<{ id: string }> }) => {
                     {session?.id == id ? "Your" : "All"} Web Applications
                 </p>
                 <ul className="card_grid_sm">
-                    <Suspense fallback={<p>Loading ...</p>} >
+                    <Suspense fallback={<WebappCardSkeleton />} >
                         <UserWebapps id={id} />
                     </Suspense>
                 </ul>
