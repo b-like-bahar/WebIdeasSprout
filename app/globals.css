@@ -190,4 +190,8 @@
   .user-image {
     @apply rounded-full object-cover border-[3px] border-black;
   }
+
+  .webapp-card-skeleton {
+    @apply w-full h-96 rounded-[22px] bg-zinc-400;
+  }
 }
