@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { auth, signIn, signOut } from "@/auth"
+import { BadgePlus } from 'lucide-react';
 
 const Navbar = async () => {
     const session = await auth()
@@ -11,37 +12,38 @@ const Navbar = async () => {
                     <Image src="/logo.png" alt="logo" width={144} height={30} />
                 </Link>
                 <div className="flex items-center gap-5 text-black">
-                    {session && session ?.user ? (
+                    {session && session?.user ? (
                         <>
-                        <Link href="/webapp/create">
-                            <span>Create</span>
-                        </Link>
+                            <Link href="/webapp/create">
+                                <span className="max-sm:hidden">Create</span>
+                                <BadgePlus className="size-6 sm:hidden" />
+                            </Link>
 
-                        <form action = {async () => {
-                            "use server"
+                            <form action={async () => {
+                                "use server"
 
-                            await signOut({ redirectTo: "/"});
+                                await signOut({ redirectTo: "/" });
                             }}
-                        >
+                            >
                                 <button type="submit">
                                     Logout
                                 </button>
-                        </form>
+                            </form>
 
-                        <Link href = {`/user/${session?.id}`}>
-                            <span>{session?.user?.name}</span>
-                        </Link>
+                            <Link href={`/user/${session?.id}`}>
+                                <span>{session?.user?.name}</span>
+                            </Link>
                         </>
                     ) : (
-                        <form action = {async () => {
+                        <form action={async () => {
                             "use server"
 
-                            await signIn ("github")
-                            }}
+                            await signIn("github")
+                        }}
                         >
-                                <button type="submit">
-                                    Login
-                                </button>
+                            <button type="submit">
+                                Login
+                            </button>
                         </form>
                     )}
                 </div>
