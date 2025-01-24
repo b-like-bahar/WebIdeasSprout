@@ -1,9 +1,10 @@
-import { formatDate } from "@/lib/utils";
+import { cn, formatDate } from "@/lib/utils";
 import Link from "next/link";
 import Image from "next/image";
 import { Button } from "./ui/button";
 import { EyeIcon } from "lucide-react";
 import { Author, Webapp } from "@/sanity/types";
+import { Skeleton } from "./ui/skeleton";
 
 export type WebappTypeCard = Omit<Webapp, "author"> & { author?: Author };
 
@@ -62,5 +63,15 @@ const WebappCard = ({post} : { post : WebappTypeCard }) => {
         </li>
     )
 }
+
+export const WebappCardSkeleton = () => (
+    <>
+    {[0, 1, 2, 3, 4].map((index: number) => (
+        <li key={cn("skeleton", index)}>
+            <Skeleton className="webapp-card-skeleton" />
+        </li>
+    ))}
+    </>
+);
 
 export default WebappCard
