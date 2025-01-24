@@ -1,8 +1,12 @@
 import { auth } from "@/auth";
+import UserWebapps from "@/components/UserWebapps";
 import { client } from "@/sanity/lib/client";
 import { AUTHOR_BY_ID_QUERY } from "@/sanity/lib/queries";
 import Image from "next/image";
 import { notFound } from "next/navigation";
+import { Suspense } from "react";
+
+export const experimental_ppr = true;
 
 
 const Page = async ({ params }: { params: Promise<{ id: string }> }) => {
@@ -25,6 +29,16 @@ const Page = async ({ params }: { params: Promise<{ id: string }> }) => {
                     @{user?.username}
                 </p>
                 <p className="mt-1 text-center text-14-normal"> {user?.bio} </p>
+            </div>
+            <div className="flex flex-col flex-1 gap-5 lg:-mt-5">
+                <p className="text-30-bold">
+                    {session?.id == id ? "Your" : "All"} Web Applications
+                </p>
+                <ul className="card_grid_sm">
+                    <Suspense fallback={<p>Loading ...</p>} >
+                        <UserWebapps id={id} />
+                    </Suspense>
+                </ul>
             </div>
         </section>
     )
