@@ -2,8 +2,6 @@ import { client } from '@/sanity/lib/client'
 import { WEBAPPS_BY_AUTHOR_QUERY } from '@/sanity/lib/queries'
 import React from 'react'
 import WebappCard, { WebappTypeCard } from './WebappCard'
-import { cn } from '@/lib/utils';
-import { Skeleton } from './ui/skeleton';
 
 const UserWebapps = async({ id }: {id : string}) => {
 
