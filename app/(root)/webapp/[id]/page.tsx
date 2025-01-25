@@ -16,9 +16,11 @@ export const experimental_ppr = true;
 const Page = async ({ params }: { params: Promise<{ id: string }> }) => {
     const id = (await params).id;
 
-    const post = await client.fetch(WEBAPP_BY_ID_QUERY, { id });
+    const [post, { select: editorsPosts }] = await Promise.all([
+        client.fetch(WEBAPP_BY_ID_QUERY, { id }),
+        client.fetch(PLAYLIST_BY_SLUG_QUERY, { slug: "best-websites" })
+    ])
 
-    const { select: editorsPosts } = await client.fetch(PLAYLIST_BY_SLUG_QUERY, { slug: "best-websites" })
 
     if (!post) return notFound();
 
