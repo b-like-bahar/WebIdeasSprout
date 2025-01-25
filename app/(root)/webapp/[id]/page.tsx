@@ -1,6 +1,6 @@
 import { formatDate } from "@/lib/utils";
 import { client } from "@/sanity/lib/client";
-import { WEBAPP_BY_ID_QUERY } from "@/sanity/lib/queries";
+import { PLAYLIST_BY_SLUG_QUERY, WEBAPP_BY_ID_QUERY } from "@/sanity/lib/queries";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -8,6 +8,7 @@ import markdownit from "markdown-it"
 import { Suspense } from "react";
 import { Skeleton } from "@/components/ui/skeleton";
 import View from "@/components/View";
+import WebappCard, { WebappTypeCard } from "@/components/WebappCard";
 
 const md = markdownit()
 export const experimental_ppr = true;
@@ -16,6 +17,8 @@ const Page = async ({ params }: { params: Promise<{ id: string }> }) => {
     const id = (await params).id;
 
     const post = await client.fetch(WEBAPP_BY_ID_QUERY, { id });
+
+    const { select: editorsPosts } = await client.fetch(PLAYLIST_BY_SLUG_QUERY, { slug: "best-websites" })
 
     if (!post) return notFound();
 
@@ -45,14 +48,24 @@ const Page = async ({ params }: { params: Promise<{ id: string }> }) => {
                     <h3 className="text-30-bold"> Pitch Details</h3>
                     {parsedContent ? (
                         <article
-                        className= "pros max-w-4xl font-work-sans break-all"
-                        dangerouslySetInnerHTML={{ __html: parsedContent}}
+                            className="pros max-w-4xl font-work-sans break-all"
+                            dangerouslySetInnerHTML={{ __html: parsedContent }}
                         />
-                    ): (
+                    ) : (
                         <p className="no-result">No details provided</p>
                     )}
                 </div>
                 <hr className="divider" />
+                {editorsPosts?.length > 0 && (
+                    <div className="max-w-4xl mx-auto">
+                        <p className="text-30-semibold">Editor Picks</p>
+                        <ul className="mt-7 card_grid-sm">
+                            {editorsPosts.map((post: WebappTypeCard, i: number) => (
+                                <WebappCard key={i} post={post} /> 
+                            ))}
+                        </ul>
+                    </div>
+                )}
                 <Suspense fallback={<Skeleton className="view_skeleton" />}>
                     <View id={id} />
                 </Suspense>
