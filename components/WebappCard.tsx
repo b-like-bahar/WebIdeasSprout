@@ -9,14 +9,14 @@ import { Skeleton } from "./ui/skeleton";
 export type WebappTypeCard = Omit<Webapp, "author"> & { author?: Author };
 
 const WebappCard = ({post} : { post : WebappTypeCard }) => {
-    const { 
-        _createdAt, 
-        views, 
+    const {
+        _createdAt,
+        views,
         author,
-        title, 
-        category, 
-        _id, 
-        image, 
+        title,
+        category,
+        _id,
+        image,
         description,
     } = post;
 
@@ -41,14 +41,16 @@ const WebappCard = ({post} : { post : WebappTypeCard }) => {
                     </Link>
                 </div>
                 <Link href={`/user/${author?._id}`}>
-                    <Image src= {author?.image!} alt={author?.name!} width={48} height={48} className="rounded-full" />
+                    <Image src={author?.image!} alt={author?.name!} width={48} height={48} className="rounded-full" />
                 </Link>
             </div>
             <Link href={`/webapp/${_id}`}>
                 <p className="webapp-card_description">
                     {description}
                 </p>
-                <img src={image} alt={`${title} website image`} className="webapp-card_img" />
+                <div className="flex justify-center items-center">
+                    <img src={image} alt={`${title} website image`} className="webapp-card_img" />
+                </div>
             </Link>
             <div className="flex-between gap-3 mt-5">
                 <Link href={`/?query=${category?.toLowerCase()}`} >
@@ -66,11 +68,11 @@ const WebappCard = ({post} : { post : WebappTypeCard }) => {
 
 export const WebappCardSkeleton = () => (
     <>
-    {[0, 1, 2, 3, 4].map((index: number) => (
-        <li key={cn("skeleton", index)}>
-            <Skeleton className="webapp-card-skeleton" />
-        </li>
-    ))}
+        {[0, 1, 2, 3, 4].map((index: number) => (
+            <li key={cn("skeleton", index)}>
+                <Skeleton className="webapp-card-skeleton" />
+            </li>
+        ))}
     </>
 );
 
