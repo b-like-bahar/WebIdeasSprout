@@ -45,7 +45,7 @@ const WebappCard = ({post} : { post : WebappTypeCard }) => {
                 </Link>
             </div>
             <Link href={`/webapp/${_id}`}>
-                <p className="webapp-card_desc">
+                <p className="webapp-card_description">
                     {description}
                 </p>
                 <img src={image} alt={`${title} website image`} className="webapp-card_img" />
