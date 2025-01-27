@@ -35,7 +35,7 @@ const Page = async ({ params }: { params: Promise<{ id: string }> }) => {
                 <p className="text-30-bold">
                     {session?.id == id ? "Your" : "All"} Web Applications
                 </p>
-                <ul className="card_grid_sm">
+                <ul className="card_grid-sm">
                     <Suspense fallback={<WebappCardSkeleton />} >
                         <UserWebapps id={id} />
                     </Suspense>
