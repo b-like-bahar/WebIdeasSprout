@@ -3,6 +3,8 @@ import SearchForm from "../../components/SearchForm";
 import WebappCard, { WebappTypeCard } from "@/components/WebappCard";
 import { sanityFetch, SanityLive } from "@/sanity/lib/live";
 
+export const revalidate = 60;
+
 export default async function Home({ searchParams } : {searchParams : Promise <{query?: string}>}) {
 
   const query = (await searchParams).query
