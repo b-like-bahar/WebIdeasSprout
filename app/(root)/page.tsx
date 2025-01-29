@@ -31,8 +31,8 @@ export default async function Home({ searchParams } : {searchParams : Promise <{
         </p>
         <ul className="mt-7 card_grid">
           {posts?.length > 0 ? (
-          posts.map((post: WebappTypeCard) => (
-            <WebappCard key={post?._id} post={post}/>
+          posts.map((post) => (
+            <WebappCard key={post?._id} post={post as WebappTypeCard}/>
           )) 
         ) : (
             <p className="no-result">No Websites found</p>
