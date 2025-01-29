@@ -73,3 +73,18 @@ export const WEBAPPS_BY_AUTHOR_QUERY =
         category,
         image
 }`);
+
+export const TOP_VISITED_WEBAPPS_QUERY = defineQuery(`
+*[_type == "webapp"] | order(views desc)[0..2] {
+    _id,
+    title,
+    slug,
+    _createdAt,
+    views,
+    author -> {
+    _id, name, image, bio
+    },
+    description,
+    category,
+    image
+}`);
