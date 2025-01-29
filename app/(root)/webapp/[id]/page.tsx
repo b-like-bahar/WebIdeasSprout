@@ -1,6 +1,6 @@
 import { formatDate } from "@/lib/utils";
 import { client } from "@/sanity/lib/client";
-import { PLAYLIST_BY_SLUG_QUERY, WEBAPP_BY_ID_QUERY } from "@/sanity/lib/queries";
+import { TOP_VISITED_WEBAPPS_QUERY, WEBAPP_BY_ID_QUERY } from "@/sanity/lib/queries";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -16,9 +16,9 @@ export const experimental_ppr = true;
 const Page = async ({ params }: { params: Promise<{ id: string }> }) => {
     const id = (await params).id;
 
-    const [post, { select: editorsPosts }] = await Promise.all([
+    const [post, topVisitedWebapps] = await Promise.all([
         client.fetch(WEBAPP_BY_ID_QUERY, { id }),
-        client.fetch(PLAYLIST_BY_SLUG_QUERY, { slug: "best-websites" })
+        client.fetch(TOP_VISITED_WEBAPPS_QUERY)
     ])
 
 
@@ -58,12 +58,12 @@ const Page = async ({ params }: { params: Promise<{ id: string }> }) => {
                     )}
                 </div>
                 <hr className="divider" />
-                {editorsPosts?.length > 0 && (
+                {topVisitedWebapps?.length > 0 && (
                     <div className="max-w-4xl mx-auto">
-                        <p className="text-30-semibold">Editor Picks</p>
+                        <p className="text-30-semibold">Most Visited Websites</p>
                         <ul className="mt-7 card_grid-sm">
-                            {editorsPosts.map((post: WebappTypeCard, i: number) => (
-                                <WebappCard key={i} post={post} /> 
+                            {topVisitedWebapps.map((post) => (
+                                <WebappCard key={post._id} post={post as WebappTypeCard} /> 
                             ))}
                         </ul>
                     </div>
