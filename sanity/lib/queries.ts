@@ -31,8 +31,8 @@ export const WEBAPP_BY_ID_QUERY =
         pitch,
 }`)
 
-export const WEBAPP_VIEWS_QUERY = 
-defineQuery(`*[_type == "webapp" && _id == $id][0]{
+export const WEBAPP_VIEWS_QUERY =
+    defineQuery(`*[_type == "webapp" && _id == $id][0]{
     _id,views
     }
 `)
@@ -72,28 +72,4 @@ export const WEBAPPS_BY_AUTHOR_QUERY =
         description,
         category,
         image
-}`);
-
-export const PLAYLIST_BY_SLUG_QUERY = defineQuery(`
-*[_type == "playlist" && slug.current == $slug][0]{
-    _id,
-    title,
-    slug,
-    select[]->{
-    _id,
-    _createdAt,
-    title,
-    slug,
-    author->{
-    _id,
-    name,
-    slug,
-    image,
-    bio
-    },
-    views,
-    description,
-    category,
-    image,
-    pitch}
 }`);
