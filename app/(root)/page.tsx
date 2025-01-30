@@ -20,7 +20,7 @@ export default async function Home({ searchParams } : {searchParams : Promise <{
           SHARE AND DISCOVER <br />INNOVATIVE WEB APP IDEAS
         </h1>
         <p className="sub-heading !max-w-3xl">
-          Submit your concepts, gather feedback, and collaborate with a vibrant community.
+          Share your ideas, explore new perspectives, and inspire innovation within our vibrant community.
         </p>
         <SearchForm query={query} />
       </section>
