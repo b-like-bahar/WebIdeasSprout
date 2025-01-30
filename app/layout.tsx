@@ -56,7 +56,7 @@ variable: '--font-work-sans'
 })
 
 export const metadata: Metadata = {
-  title: "WebVerse",
+  title: "WebIdeasSprout",
   description: "Get your web app project ideas here",
 };
 
