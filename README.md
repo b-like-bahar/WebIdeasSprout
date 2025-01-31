@@ -1,36 +1,39 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Project Title
+WebIdeasSprout
 
-## Getting Started
+## Overview
 
-First, run the development server:
+WebIdeasSprout is a dynamic platform designed to help innovators share and discover web application ideas. It fosters collaboration by allowing users to submit their websites, and explore a diverse collection of other projects. With features like real-time search, authentication, and user profiles, it creates an engaging community for brainstorming and inspiration.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+### Problem Space
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Coming up with web app ideas, finding inspiration for new projects, or showcasing work-in-progress applications can be challenging for developers and entrepreneurs. WebIdeasSprout solves this by providing a dedicated platform where users can explore, submit, and discuss web application ideas, fostering collaboration and innovation in the development community.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Features
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **Dynamic Content Display**:Showcases the most recent Web Application ideas on the homepage utilizing Sanity's Content API.
+- **GitHub Login Integration**: Enables users to effortlessly sign in using their GitHub credentials.
+- **Web Application Submission Portal**: Allows users to enter their Website info, including title, description, category, and image link.
+- **Browse Web Applications**: Enables users to explore submitted Web apps with category-based filtering options.
+- **Detailed Web Application View**: Provides comprehensive information for each web app idea, displaying image and descriptions.
+- **User Dashboard**: Offers users an overview of their submitted Web apps.
+- **Top Visited Web Apps**: Displays the most viewed web applications, ensuring the best projects get highlighted dynamically.
+- **View Tracking**: Monitors the number of live views for each submitted web application, replacing the traditional upvote system.
+- **Efficient Search Functionality**: Provides a search feature to quickly load and view web app ideas.
 
-## Learn More
+## Implementation
 
-To learn more about Next.js, take a look at the following resources:
+### Tech Stack
+- React 19
+- Next.js 15
+- Sanity
+- TailwindCSS
+- ShadCN
+- TypeScript
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Full Project Setup 
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. **Clone this repository:**
+   ```bash
+   [git clone https://github.com/b-like-bahar/WebIdeasSprout.git]
+   
