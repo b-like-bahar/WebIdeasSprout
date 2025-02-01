@@ -36,4 +36,70 @@ Coming up with web app ideas, finding inspiration for new projects, or showcasin
 1. **Clone this repository:**
    ```bash
    [git clone https://github.com/b-like-bahar/WebIdeasSprout.git]
+2. **Install dependencies:**
+   ```bash
+   npm install
+
+3. **Set up environment variables:**  
+Create a .env.local file in the root directory of your project and add the following:
+   ```bash
+    AUTH_SECRET= 
+    AUTH_GITHUB_ID=
+    AUTH_GITHUB_SECRET=
+    NEXT_PUBLIC_SANITY_PROJECT_ID=
+    NEXT_PUBLIC_SANITY_DATASET='production'
+    NEXT_PUBLIC_SANITY_API_VERSION='vX'
+    SANITY_TOKEN=
+
+### 📌 How to Obtain These Variables
+
+#### **1️⃣ GitHub Authentication Variables**
+- Go to [GitHub Developer Settings](https://github.com/settings/developers).
+- Create a new **OAuth App**.
+- Use `http://localhost:3000/api/auth/callback/github` as the **callback URL** for local development.
+- After creation, GitHub will provide:
+  - **Client ID** → Set this as `AUTH_GITHUB_ID`.
+  - **Client Secret** → Set this as `AUTH_GITHUB_SECRET`.
+- Generate a secure `AUTH_SECRET` using:
+  ```bash
+  npx auth secret
+  ```
+
+#### **2️⃣ Sanity API Variables**
+- Sign up or log in to [Sanity.io](https://www.sanity.io/).
+- Create a new project and select a dataset (`production` is recommended).
+- Find your **Project ID** in **Sanity's dashboard** and set it as `NEXT_PUBLIC_SANITY_PROJECT_ID`.
+- Set `NEXT_PUBLIC_SANITY_API_VERSION` to the latest stable Sanity API version.
+- Generate an API Token:
+  - Go to **Sanity Dashboard → Settings → API → Tokens**.
+  - Create a new token with **appropriate permissions**.
+  - Use this token as `SANITY_TOKEN`.
+
+4. **Run the development server:**
+   ```bash
+    npm run dev
+
+# Inspiration
+This project was inspired by the **Next.js 15 Crash Course** by [JavaScript Mastery](https://www.youtube.com/watch?v=Zq5fmkH0T78&t=2s&ab_channel=JavaScriptMastery). The video provided a great foundation for building modern full-stack applications using Next.js 15, Sanity, and authentication with NextAuth.js.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
    
