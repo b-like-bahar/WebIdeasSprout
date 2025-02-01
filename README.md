@@ -35,7 +35,7 @@ Coming up with web app ideas, finding inspiration for new projects, or showcasin
 
 1. **Clone this repository:**
    ```bash
-   [git clone https://github.com/b-like-bahar/WebIdeasSprout.git]
+   git clone https://github.com/b-like-bahar/WebIdeasSprout.git
 2. **Install dependencies:**
    ```bash
    npm install
